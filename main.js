@@ -1,6 +1,3 @@
-
-
-
 // What: Define the OTP class to encapsulate OTP properties and methods
 // Why: Eases the storage and manipulation of OTPs, and allows for future extensibility
 export class OTP {
@@ -24,17 +21,7 @@ export class OTP {
   }
 }
 
-// What: Hash function to hash the entered passcode
-// Why: For a demonstration of how to add a layer of security by not storing the plain passcode
-// Note: This is not a secure method for production
-export function hashPasscode(identificationCode) {
-  let hash = 0;
-  for (let i = 0; i < identificationCode.length; i++) {
-    const char = identificationCode.charCodeAt(i);
-    hash = (hash << 5) - hash + char;
-  }
-  return hash;
-}
+// Removed Hash function to hash the entered passcode
 
 // What: Data store to hold OTPs using a Map data structure
 // Why: Map allows efficient key-value pair storage and retrieval, essential for managing multiple OTPs

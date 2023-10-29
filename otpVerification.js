@@ -1,4 +1,4 @@
-import { otpStorage, hashPasscode } from './main.js';
+import { otpStorage } from './main.js';
 
 // What: Event listener to execute code once the DOM is fully loaded
 // Why: Ensures that all HTML elements are fully loaded before attaching event handlers
@@ -15,15 +15,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Why: We are handling form submission via JavaScript
     event.preventDefault();
 
-    // What: Retrieve and hash the entered passcode
-    // Why: The hashed passcode is used for OTP validation
+    // What: Retrieve the entered passcode
+    // Why: The entered passcode is used for OTP validation
     const enteredPasscode = document.getElementById("passcode").value;
-    const hashedPasscode = hashPasscode(enteredPasscode);
 
     // What: Check if a valid OTP exists in otpStorage
     // Why: To validate the user's entered OTP
-    if (otpStorage.has(hashedPasscode)) {
-      const existingOtp = otpStorage.get(hashedPasscode);
+    if (otpStorage.has(enteredPasscode)) {
+      const existingOtp = otpStorage.get(enteredPasscode);
 
       if (!existingOtp.isExpired()) {
         // What: Update UI to indicate success
