@@ -1,7 +1,14 @@
+/* optVerification.html */
 .success {
-    color: green;
+  color: green;
 }
 
 .failure {
-    color: red;
+  color: red;
+}
+
+/* otpGeneration.html */
+#otp-display {
+  font-size: 24px;
+  margin-top: 20px;
 }
