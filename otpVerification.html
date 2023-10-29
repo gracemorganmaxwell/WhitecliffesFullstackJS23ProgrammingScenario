@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="checkOtp.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Check Users Login Authentication passcode with OTP Test</title>
   </head>
   <body>
@@ -11,10 +11,9 @@
     <form id="otp-form">
       <label for="passcode">Enter OTP:</label>
       <input type="password" id="passcode" name="passcode" />
-
       <button type="submit">Submit</button>
     </form>
     <span id="message"></span>
-    <script src="otpVerification.js"></script>
+    <script type="module" src="otpVerification.js"></script>
   </body>
 </html>

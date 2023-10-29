@@ -1,4 +1,4 @@
-import { otpStorage } from './main.js';
+import { otpStorage, hashPasscode } from './main.js';
 
 // What: Event listener to execute code once the DOM is fully loaded
 // Why: Ensures that all HTML elements are fully loaded before attaching event handlers
