@@ -56,17 +56,21 @@ Which takes two arguments:
 
 ## Implement the Logic
 
-Retrieve the current time using Date.now().
+The OTP validation logic is executed within an event listener attached to a form.
 
-Check if the `identificationCode` already exists in the `otpStorage` Map.
+1. Retrieve the current time using Date.now().
 
-a. If it does, verify if it has expired.
+2. Hash the entered identificationCode for added security.
 
-b. If not expired, update its expiration time (`expiryTime`) and return true.
+3. Check if the hashed identificationCode already exists in the otpStorage Map.
 
-c. If expired, overwrite it with a new expiration time and return false.
+    a. If it does, verify if it has expired.
 
-If the `identificationCode` does not exist, create a new OTP object, add it to otpStorage, and return false.
+    b. If not expired, update its expiration time (expiryTime) and display a success message.
+
+    c. If expired, overwrite it with a new expiration time and display a failure message.
+
+4. If the identificationCode does not exist, display a failure message.
 <br>
 
 # Section 2:
@@ -104,3 +108,80 @@ As a result, the Delivery Manager has given you a task to create a function that
     11.	A short summary explaining how the program met the clients’ requirements (100 words maximum).
 
 <br>
+
+
+# Section 3: Roadmap for Project in full (while underway)
+
+## Project Structure
+
+## Directory Structure
+
+1. All Files
+
+index.html (Login page)
+otpGeneration.html (Simulated app for generating OTP)
+otpVerification.html (OTP verification page)
+createAccount.html (Account creation page)
+main.js (Common script)
+otpGeneration.js
+otpVerification.js
+createAccount.js
+style.css (Common styles)
+
+2. HTML Files
+
+index.html: Contains the login form.
+otpGeneration.html: Simulates an app where the user can generate an OTP.
+otpVerification.html: Where the user inputs the OTP received.
+createAccount.html: Account creation form.
+
+3. JavaScript Files
+
+main.js: Common functions and data structure for OTP handling.
+otpGeneration.js: Script linked with otpGeneration.html for generating OTPs.
+otpVerification.js: Script linked with otpVerification.html for verifying OTPs.
+createAccount.js: Script linked with createAccount.html for account creation.
+
+4. CSS File
+
+style.css: Common styles for all pages.
+
+## Core Functionality
+
+1. User Login
+
+Create a simple login form in index.html.
+Add client-side validation in main.js to check the credentials (for simulation, you can hardcode a username and password).
+
+2. Generate OTP
+
+In otpGeneration.html, provide a button to generate an OTP.
+When clicked, the OTP gets generated and stored in otpStorage (from main.js).
+
+3. Verify OTP
+
+In otpVerification.html, create a form to input the OTP.
+Validate this OTP against the one stored in otpStorage.
+
+4. Create an Account
+
+Create a form in createAccount.html that accepts username, password, and other details.
+Use createAccount.js to store these details (for now, you can use local storage or a simple JavaScript object).
+
+5. UI Feedback
+
+Use style.css to style success and failure messages.
+UI Elements
+
+6. Success and Failure Indicators
+
+Use colored text or icons to indicate success (green) or failure (red).
+
+7. Loading Indicators
+
+While generating and validating the OTP, show a loading spinner.
+
+8. Responsive Design
+
+Make sure your UI scales well on mobile, tablet, and desktop.
+
