@@ -64,14 +64,14 @@ The OTP validation logic is executed within an event listener attached to a form
 
 3. Check if the hashed identificationCode already exists in the otpStorage Map.
 
-    a. If it does, verify if it has expired.
+   a. If it does, verify if it has expired.
 
-    b. If not expired, update its expiration time (expiryTime) and display a success message.
+   b. If not expired, update its expiration time (expiryTime) and display a success message.
 
-    c. If expired, overwrite it with a new expiration time and display a failure message.
+   c. If expired, overwrite it with a new expiration time and display a failure message.
 
 4. If the identificationCode does not exist, display a failure message.
-<br>
+   <br>
 
 # Section 2:
 
@@ -109,79 +109,52 @@ As a result, the Delivery Manager has given you a task to create a function that
 
 <br>
 
-
 # Section 3: Roadmap for Project in full (while underway)
 
-## Project Structure
+## Breakdown of logic
 
-## Directory Structure
+Create Login and Signup Forms:
+HTML forms for login and signup with fields like username, email, and password.
 
-1. All Files
+User Registration Logic:
+JavaScript logic to capture the signup form data and store it locally (localStorage can be used for simulation).
 
-index.html (Login page)
-otpGeneration.html (Simulated app for generating OTP)
-otpVerification.html (OTP verification page)
-createAccount.html (Account creation page)
-main.js (Common script)
-otpGeneration.js
-otpVerification.js
-createAccount.js
-style.css (Common styles)
+User Login Logic:
+Logic to validate the user against the stored data.
 
-2. HTML Files
+OTP Generation:
+Once the user is validated, generate an OTP.
 
-index.html: Contains the login form.
-otpGeneration.html: Simulates an app where the user can generate an OTP.
-otpVerification.html: Where the user inputs the OTP received.
-createAccount.html: Account creation form.
+OTP Sending Simulation:
+For local simulation, we will simply display the OTP on the in a browser tab.
 
-3. JavaScript Files
+OTP Verification:
+A separate form to enter the received OTP.
 
-main.js: Common functions and data structure for OTP handling.
-otpGeneration.js: Script linked with otpGeneration.html for generating OTPs.
-otpVerification.js: Script linked with otpVerification.html for verifying OTPs.
-createAccount.js: Script linked with createAccount.html for account creation.
+Final Authentication:
+Logic to verify the OTP. If it's correct and hasn't expired, the user is granted access (simulated by displaying a "Logged In Successfully" message).
 
-4. CSS File
+## File Structure
 
-style.css: Common styles for all pages.
+HTML Files:
 
-## Core Functionality
+signup.html
+login.html
+otpGeneration.html
+otpVerification.html
 
-1. User Login
+JavaScript Files:
 
-Create a simple login form in index.html.
-Add client-side validation in main.js to check the credentials (for simulation, you can hardcode a username and password).
+main.js (common functions and data store)
+signup.js (signup logic)
+login.js (login logic)
+otpGeneration.js (OTP generation logic)
+otpVerification.js (OTP verification logic)
 
-2. Generate OTP
+## Important Points:
 
-In otpGeneration.html, provide a button to generate an OTP.
-When clicked, the OTP gets generated and stored in otpStorage (from main.js).
+Local Storage: Use localStorage to simulate a database. You can store the user details and OTPs here for validation.
 
-3. Verify OTP
+State Management: Since you're working with multiple pages, you'll need a way to maintain state. This can be done using localStorage or passing data through URLs.
 
-In otpVerification.html, create a form to input the OTP.
-Validate this OTP against the one stored in otpStorage.
-
-4. Create an Account
-
-Create a form in createAccount.html that accepts username, password, and other details.
-Use createAccount.js to store these details (for now, you can use local storage or a simple JavaScript object).
-
-5. UI Feedback
-
-Use style.css to style success and failure messages.
-UI Elements
-
-6. Success and Failure Indicators
-
-Use colored text or icons to indicate success (green) or failure (red).
-
-7. Loading Indicators
-
-While generating and validating the OTP, show a loading spinner.
-
-8. Responsive Design
-
-Make sure your UI scales well on mobile, tablet, and desktop.
-
+Security: Since this is a simulation, you don't have to worry about security. However, in a production environment, never store sensitive information like passwords or OTPs in localStorage, and never perform security-sensitive operations on the client-side.
